@@ -2,7 +2,8 @@ import asyncHandler from "express-async-handler";
 import KhachHang from "../models/khachhangSchema.js";
 
 const getKhachHangList = asyncHandler(async (req, res) => {
-    const khachhangs = await KhachHang.find({});
+    const khachhangs = await KhachHang.find({})
+        .populate("XeKhachHang.Xe")
     res.json(khachhangs);
 });
 
