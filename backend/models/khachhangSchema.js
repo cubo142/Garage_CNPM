@@ -1,17 +1,14 @@
 import mongoose from 'mongoose';
 
 var khachhangSchema = new mongoose.Schema({
-    XeKhachHang:[{
-        Xe:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Xe"
-        },
-        SoLuong: Number
+    XeKhachHang: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Xe"
     }],
     TenKH: String,
     DiaChi: String,
     SDT: String
-},{
+}, {
     versionKey: false
 })
 

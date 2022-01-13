@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
 var xeSchema = new mongoose.Schema({
-    MaLoaiXe: {
+    LoaiXe: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "LoaiXe"
     },
     BienSo: String
-},{
+}, {
     versionKey: false
 })
 

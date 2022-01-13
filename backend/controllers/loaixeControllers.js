@@ -2,8 +2,15 @@ import asyncHandler from "express-async-handler";
 import LoaiXe from "../models/loaixeSchema.js";
 
 const getLoaiXeList = asyncHandler(async (req, res) => {
-    const loaixes = await LoaiXe.find({});
+    const loaixes = await LoaiXe.find({})
+        .populate("LoaiXe")
     res.json(loaixes);
+});
+
+const getLoaiXe = asyncHandler(async (req, res) => {
+    const loaixe = await LoaiXe.findById(req.params.Id)
+        .populate("LoaiXe")
+    res.json(loaixe);
 });
 
 // const getUser = asyncHandler(async (req, res) => {
@@ -18,4 +25,4 @@ const getLoaiXeList = asyncHandler(async (req, res) => {
 //     })
 //     res.json(user)
 // });
-export { getLoaiXeList };
+export { getLoaiXeList, getLoaiXe };
